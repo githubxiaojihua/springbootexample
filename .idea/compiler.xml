@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="class001-手动搭建简单boot应用" />
+        <module name="class002-全局异常捕获及抽离App启动类" />
+        <module name="class0020-全局异常捕获及抽离App启动类" />
+        <module name="class003-集成freemaker" />
+        <module name="class004-整合jdbctemplate" />
+        <module name="class005-整合springjpa" />
+        <module name="class006-整合mybatis" />
+        <module name="class007-多数据源的实现及事物" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="class0020-全局异常捕获及抽离App启动类" target="1.6" />
+      <module name="class003" target="1.5" />
+      <module name="springbootexample1" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
