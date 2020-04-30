@@ -1,0 +1,28 @@
+spring boot 多数据源配置
+
+一、相关注解的解释
+@Primary：当spring容器中存在多个类型一样的bean的时候，使用autowired注入的时候优先考虑被Primary注解标注的类
+@ConfigurationProperties：作用是可以根据一个前缀将配置文件的属性映射成一个POJO实体类，只要属性名一致就能自动注入进去
+比如本例中
+    @Bean(name = "test1DataSource")
+	@ConfigurationProperties(prefix = "spring.datasource.test1")
+	@Primary
+	public DataSource testDataSource() {
+		return DataSourceBuilder.create().build();
+	}
+	意思是从application.properties中获取前缀是spring.datasource.test1的属性然后根据属性名称对应自动设置到DataSource类中
+
+二、多数据源的实现
+1、在application.properties定义多个自定义的数据源，每个数据源的各个配置应该有相同的前缀。
+2、定义两个java配置文件，分别用于根据application.properties中自定义的数据源初始化dataSource、sessionFactory|
+   transactionManager以及SqlSessionTemplate。
+   同时使用@MapperScan(basePackages = "com.xiaojihua.mapper.test01", sqlSessionFactoryRef = "test1SqlSessionFactory")
+   这个配置类说明mybatis扫描test01包中的mapper,并且这些mapper使用的sessionFactory为相应自定义的数据源。
+   同时在SqlSessionFactory bean定义的时候指定了相关Mapper.xml文件的地址
+   //mybatis写配置文件
+   bean.setMapperLocations(new PathMatchingResourcePatternResolver().
+   getResources("classpath:test1/*.xml"));
+3、在service 中分别注入对应的StudentMapperTest01接口以及StudentMapperTest02接口
+4、在controller中分别调用就可以操作不同数据库中的内容。
+说明：当程序中存在多个数据源的时候启动的时候往往会报错，那么需要给其中一个数据源的各个方法加上@Primary代表为
+默认的数据源。

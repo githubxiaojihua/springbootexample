@@ -10,7 +10,8 @@ import java.util.Map;
 
 /**
  * 知识点：
- * 1、全局捕获异常。ControllerAdvice
+ * 1、全局捕获异常。
+ * ControllerAdvice，是Controller的一个辅助类，用作全局异常处理的切面类
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {

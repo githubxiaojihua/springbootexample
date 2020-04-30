@@ -1,0 +1,23 @@
+1、启动方式和访问静态资源
+    /**
+     * 知识点：
+     * 1、创建单独的应用程序启动类，将相关的注解都写在这个类上。
+     * 2、ComponentScan的使用，告诉springboot扫描哪些包。
+     * 3、静态资源的访问：将静态资源防盗resources/static下面然后启动应用后可以直接在浏览器输入http://localhost:8080/123.jpg，即可访问
+     */
+
+2、全局捕获异常，
+    使用controllerAdvice注解配合ExceptionHandler注解来使用。
+    @ControllerAdvice：是一个特殊的@Component，用于标识一个类，这个类中被以下三种注解标识的
+    方法：@ExceptionHandler，@InitBinder，@ModelAttribute，将作用于所有的@Controller类的接口上。
+    也就是说ControllerAdvice注解将标注了上面注解的方法增强到了所有controller的方法上了。
+
+    @InitBinder作用：注册属性编辑器，对HTTP请求参数进行处理，再绑定到对应的接口，比如格式化的时间转换等。
+    应用于单个@Controller类的方法上时，仅对该类里的接口有效。与@ControllerAdvice组合使用可全局生效。
+    @ExceptionHandler作用：统一异常处理，也可以指定要处理的异常类型
+    @ModelAttribute作用：绑定数据
+    具体使用看：
+    https://juejin.im/post/5cb95001e51d456e63760476
+
+其实springboot中使用的很多技术都是原来的技术，比如上面说的ControlerAdvice实际上就是springmvc的注解，spring
+boot的强大之处是在于自动配置

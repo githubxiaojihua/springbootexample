@@ -1,0 +1,14 @@
+
+/**
+ * 知识点：
+ * 1、集成freemaker
+ * 2、在pom引入依赖
+ * 3、在templates中创建模板index.ftl
+ * 4、在controller中设置值
+ * 其他的都有boot自动配置。同时还可以通过application.properties文件进行微调
+ */
+
+
+其实indexController 接口方法中的result参数在程序运行后也会被实例化为ModelMap
+
+ springboot整合jsp比较特别一点需要配置看笔记里面

@@ -11,7 +11,7 @@ public class UserService {
 
     public void createUser(String name, Integer age){
         System.out.println("create user in UserService");
-        jdbcTemplate.update("insert into student values(?,?,?)",123,"zhangsan",99);
+        jdbcTemplate.update("insert into student(name,age) values(?,?)",name,age);
         System.out.println("创建用户成功");
     }
 }

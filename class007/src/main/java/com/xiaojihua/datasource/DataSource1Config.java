@@ -19,6 +19,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 @MapperScan(basePackages = "com.xiaojihua.mapper.test01", sqlSessionFactoryRef = "test1SqlSessionFactory")
 public class DataSource1Config {
 
+	// 使用springboot内部DataSourceBuilder类创建一个dataSource
 	@Bean(name = "test1DataSource")
 	@ConfigurationProperties(prefix = "spring.datasource.test1")
 	@Primary

@@ -1,0 +1,19 @@
+/**
+ * 知识点：整合mybatis
+ * 1、引入依赖
+ * 2、配置application.properties
+ * 3、建立StudentMapping.xml
+ * 4、建立StudentMapper.java
+ * 5、建立Student.java实体类
+ * 6、建立Studentservice.java
+ * 7、建立StudentController.java
+ * 8、配置本启动类MapperScan
+ */
+
+ 使用了SpringBootApplication注解，相当于
+ @Configuration
+ @EnableAutoConfiguration
+ @ComponentScan
+ 这三个注解
+
+在application.properties中有mybatis的相关配置

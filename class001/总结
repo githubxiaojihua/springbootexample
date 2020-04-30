@@ -1,0 +1,15 @@
+在父工程中导入springboot相关依赖
+ <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.3.RELEASE</version>
+</parent>
+其他的相关包由当前项目自己引入，同时注意在父工程中不能写
+<dependencyManagement>
+
+    <dependencies>
+
+    </dependencies>
+
+</dependencyManagement>
+这会导致各个单独工程引入相关包的时候出现没有版本号错误
